@@ -12,9 +12,9 @@
 
     <!-- iOS (iPhone/Safari) 用の特別設定 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="英単語アプリ">
-    <link rel="apple-touch-icon" href="icon-192.jpg">
+    <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
     <div id="app">
@@ -30,5 +30,17 @@
 
     <!-- JavaScriptの読み込み（bodyの最後で読み込むことでDOM描画後の操作を確実にします） -->
     <script src="app.js"></script>
+    <!-- Service Worker登録スクリプト -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(registration => {
+                    console.log('Service Worker登録成功:', registration);
+                })
+                .catch(error => {
+                    console.log('Service Worker登録失敗:', error);
+                });
+        }
+    </script>
 </body>
 </html>
