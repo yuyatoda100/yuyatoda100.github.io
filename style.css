@@ -1,0 +1,350 @@
+/* リセットと基本スタイル */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app {
+    width: 100%;
+    max-width: 480px; /* スマホ画面の幅を意識した最大幅 */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+/* クイズカード */
+.quiz-card {
+    text-align: center;
+}
+
+.question-number {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.word-display {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* 選択肢ボタンの縦並びスタイル */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    padding: 14px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* タップ・ホバー時の動き（スマホの操作感を意識） */
+.option-btn:hover {
+    background-color: #e8f4fd;
+    border-color: #3498db;
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+/* 結果画面・プログレスバー */
+.result-card {
+    text-align: center;
+}
+
+.score-text {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.score-text strong {
+    font-size: 1.8rem;
+    color: #27ae60;
+}
+
+/* ゲージの背景枠 */
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0 10px 0;
+}
+
+/* ゲージの中身（緑色のバー） */
+.progress-bar-fill {
+    height: 100%;
+    background-color: #2ecc71;
+    transition: width 0.5s ease-in-out; /* アニメーションで伸びる */
+}
+
+.percentage-text {
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+}
+
+.restart-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.restart-btn:hover {
+    background-color: #2980b9;
+}
+/* ダッシュボード */
+.dashboard-card {
+    text-align: center;
+}
+
+.dashboard-card h2 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* ステータス内訳（3列のボックス） */
+.status-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0 25px 0;
+}
+
+.status-item {
+    flex: 1;
+    padding: 12px 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.status-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* ボタン関係 */
+.start-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.start-btn:hover {
+    background-color: #27ae60;
+}
+/* ボタンのグループ配置 */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.secondary-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: #4a5568;
+    background-color: #edf2f7;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.secondary-btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* 単語一覧・フィルタータブ */
+.word-list-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 8px 4px;
+    font-size: 0.85rem;
+    border: 1px solid #cbd5e0;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #3182ce;
+    color: #fff;
+    border-color: #3182ce;
+    font-weight: bold;
+}
+
+/* 単語リスト */
+.word-list {
+    max-height: 300px;
+    overflow-y: auto; /* 件数が多くなったらスクロール */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.word-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.word-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.word-english {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.word-japanese {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+/* ステータスバッジ */
+.badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.badge-mastered { background: #c6f6d5; color: #22543d; }
+.badge-review   { background: #feebc8; color: #744210; }
+.badge-unlearned{ background: #e2e8f0; color: #4a5568; }
+
+.empty-msg {
+    text-align: center;
+    color: #a0aec0;
+    padding: 20px 0;
+}
+/* データリセットボタン */
+.reset-link-btn {
+    background: none;
+    border: none;
+    color: #e53e3e;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+.reset-link-btn:hover {
+    color: #c53030;
+}
+/* 学年（レベル）選択ボタン群 */
+.level-selector {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.level-btn {
+    flex: 1;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid #dcdfe6;
+    background-color: #ffffff;
+    color: #606266;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.level-btn:hover {
+    background-color: #f2f6fc;
+}
+
+.level-btn.active {
+    background-color: #409eff;
+    color: #ffffff;
+    border-color: #409eff;
+}
+
+/* 単語リスト内の学年ラベル */
+.badge-level {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
